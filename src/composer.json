@@ -1,0 +1,17 @@
+{
+    "name": "aishan/laravel-liumi",
+    "description": "liumi sdk for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "aishan",
+            "email": "aishan520315@vip.126.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+      "psr-4": {
+        "Aishan\\LaravelLiumi\\": "src/"
+      }
+    }
+}
