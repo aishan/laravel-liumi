@@ -12,12 +12,13 @@ class Liumi{
     private $appSecret;
     private $token;
     private $sign;
-
+    private $packageConfig;
     function __construct()
     {
         $this->serverUrl = config('liumi.serverUrl');
         $this->appKey = config('liumi.appKey');
         $this->appSecret = md5(config('liumi.appSecret'));
+        $this->packageConfig = config('liumi.packageConfig');
         //鉴权获取Token
         $this->sign = sha1("appkey" . $this->appKey . "appsecret" . $this->appSecret); //顺序不能变
         $params = [
@@ -152,7 +153,7 @@ class Liumi{
      * @throws \Exception
      */
     function packageConfig($isp,$package){
-        $packageConfig = [
+        /*$packageConfig = [
             '1' => [
                 '20'=>['DX10','DX10'],
                 '100'=>['DX100'],
@@ -168,7 +169,8 @@ class Liumi{
                 '100'=>['LT100'],
                 '200'=>['LT200'],
             ],
-        ];
+        ];*/
+        $packageConfig = $this->packageConfig;
         if(isset($packageConfig[$isp][$package])){
             return $packageConfig[$isp][$package];
         } else{
